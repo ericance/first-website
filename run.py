@@ -4,7 +4,6 @@ from app import db
 from app.models import Item
 
 try:
-	db.drop_all()
 	Item.query.all()
 except:
 	# add more items by using the convention Item(name, price, image)

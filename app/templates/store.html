@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block content %}
-	<h1 style="text-align: center;">store</h1>	
+	<h1 style="text-align: center;">Store Page</h1>	
 	<div class="container">
 		{% for item in items %}	
 			<div class="card">
 				<div class="item">
-					<h1>{{ item.name }}</h1>
+					<h1 style="white-space: nowrap; width: 100%; font-size: 18px;">{{ item.name }}</h1>
 					<img src='{{ item.image }}' width="80px" height="80px" style="margin: 10px;">
 					<p class="price">${{ '%0.2f' | format(item.price|float) }}</p>
 					
