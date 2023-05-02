@@ -2,11 +2,6 @@ from app import app, db
 from flask import render_template, request
 from app.models import Item
 
-itemKey = {
-	1: "Cookie",
-    2: "Sandwich",
-    3: "Water"
-}
 
 quantityTracker=0
 try:
@@ -29,7 +24,7 @@ def store():
 		try:
 			data = request.json
 			item_id = int(data["id"])
-			item_object = Item.query.filter_by(name=itemKey[item_id]).first()
+			item_object = Item.query.filter_by(id=item_id).first()
 			item_object.quantity += 1
 			db.session.commit()
 		except:
