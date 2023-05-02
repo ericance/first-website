@@ -5,7 +5,7 @@ class Item(db.Model):
 	name = db.Column(db.String(), nullable=False, unique=True)
 	price = db.Column(db.Integer(), nullable=False)
 	image = db.Column(db.String(), nullable=False, unique=True)
-	quantity = db.Column(db.Integer(), nullable=False)
+	quantity = db.Column(db.Integer(), nullable=False, default=0)
 	def __repr__(self):
 		return f'Item {self.name}'
 	
