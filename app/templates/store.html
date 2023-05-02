@@ -7,7 +7,7 @@
 				<div class="item">
 					<h1>{{ item.name }}</h1>
 					<img src='{{ item.image }}' width="100px" height="100px">
-					<p class="price">${{ item.price }}</p>
+					<p class="price">${{ '%0.2f' | format(item.price|float) }}</p>
 					<button>Add to Cart</button>
 				</div>	
 			</div>	
