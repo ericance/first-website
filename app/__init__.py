@@ -7,3 +7,4 @@ db = SQLAlchemy(app)
 app.app_context().push()
 
 from app import routes
+
