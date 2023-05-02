@@ -9,9 +9,9 @@ except:
 	# add more items by using the convention Item(name, price, image)
 	db.create_all()
 
-	cookie = Item(name='Cookie', price=1.50, image="https://i.ibb.co/ZYhNcVf/cookie.png")
-	sandwich = Item(name='Sandwich', price=4.00, image="https://i.ibb.co/TM0DSrs/sandwich.png")
-	water = Item(name='Water', price=1.00, image="https://i.ibb.co/Dp6zFtk/water.png")
+	cookie = Item(name='Cookie', price=1.50, image="https://i.ibb.co/ZYhNcVf/cookie.png", quantity=0)
+	sandwich = Item(name='Sandwich', price=4.00, image="https://i.ibb.co/TM0DSrs/sandwich.png", quantity=0)
+	water = Item(name='Water', price=1.00, image="https://i.ibb.co/Dp6zFtk/water.png", quantity=0)
 	db.session.add(cookie)
 	db.session.add(sandwich)
 	db.session.add(water)

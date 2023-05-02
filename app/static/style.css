@@ -22,8 +22,11 @@
 	cursor: pointer;
 	font-size: 18px;
 	border-radius: 15px;
-	width: 100%;
 	text-decoration: none;
+}
+
+.nav a:not(.cart-btn) {
+	width: 100%;
 }
 
 .cart-btn {
