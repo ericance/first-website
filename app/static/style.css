@@ -50,9 +50,10 @@ body {
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	max-width: 300px;
 	text-align: center;
-	margin: 5px;
+	margin: 8px;
 	flex-basis: 15%;
-	background-color: rgb(106, 206, 189);
+	background-color: rgb(64, 68, 73);
+	border-radius: 10px;
 }
 
 .card h1 {
@@ -60,7 +61,7 @@ body {
 }
 
 .price {
-	color: rgb(88, 98, 100);
+	color: rgb(199, 198, 198);
 	font-size: 22;
 }
 
@@ -68,11 +69,13 @@ body {
 	border: none;
 	padding: 12px;
 	color: #fff;
-	background-color: #008989;
+	background-color: #111111;
 	text-align: center;
 	cursor: pointer;
 	width: 100%;
 	font-size: 18px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .card button:hover {
