@@ -24,7 +24,7 @@
 		var buttons = document.getElementsByClassName("add-to-cart")
 		for (let i = 0; i < buttons.length; i++) {
 			buttons[i].onclick = function() {
-				fetch("/store", {
+				fetch("/api/cart", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -34,8 +34,8 @@
 					})
 				}).then(response => {
 					if (response.ok) {
-						let newNotification = parseInt(notification.innerHTML) + 1
-						notification.innerHTML = newNotification > 99 ? "99+" : newNotification
+						let newNotification = parseInt(notification.innerText) + 1
+						notification.innerText = newNotification > 99 ? "99+" : newNotification
 					}
 				})
 			}

@@ -107,3 +107,37 @@ img {
 	width: 15%;
 	margin-bottom: 24px;
 }
+
+.cart-item {
+	display: flex;
+}
+
+.item-image {
+	width: 150px;
+	height: 150px;
+	margin-right: 18px;
+	padding: 16px;
+	padding-right: 0px;
+}
+
+.item-name {
+	font-size: 24px;
+	margin-bottom: 8px;
+}
+
+/* .item-price {
+	position: ;
+} */
+
+.item-quantity {
+	color: black;
+	height: 16px;
+	width: 100%;
+}
+
+#cart-total {
+	margin-top: 0px;
+	color: rgb(108, 247, 115);
+	font-weight: bold;
+	font-size: 24px;
+}

@@ -5,5 +5,72 @@
 {% endblock %}
 
 {% block content %}
-	<h1 style="text-align: center;">Checkout Page</h1>	
+	<h1 style="text-align: center;">Checkout Page</h1>
+
+	{% if itemSize > 0 %}
+	<div class="card" id="cart-card" style="max-width: 400px; margin: auto; border-radius: 15px; opacity: 80%;">
+		{% for item in items %}
+			{% if item.quantity > 0 %}
+				<div class="cart-item">
+					<img class="item-image" src="{{ item.image }}">
+					<div style="display: flex; flex-direction: column; align-items: center; width: 50%;">
+						<p class="item-name">{{ item.name }}</p>
+						<p>Quantity: </p>
+						<input class="item-quantity" type="number" min="0" max="99" value="{{ item.quantity }}" itemId="{{ item.id }}">
+						<p class="item-price">${{ '%0.2f' | format(item.price|float) }}</p>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+		<p style="margin-bottom: 4px;">Total: </p>
+		<p id="cart-total">$0.00</p>
+		<button class="checkout-button" type="submit">Checkout</button>
+	</div>
+	{% endif %}
+
+	<script>
+		const notification = document.getElementById("notification")
+		const cartCard = document.getElementById("cart-card")
+		const cartTotal = document.getElementById("cart-total")
+		var buttons = document.getElementsByClassName("checkout-button")
+		var quantities = document.getElementsByClassName("item-quantity")
+		var items = JSON.parse(`{{ itemsJSON|safe }}`)
+		var itemSize = "{{ itemSize }}"
+		var total = 0
+
+		if (itemSize > 0) {
+			for (let i = 0; i < buttons.length; i++) {
+				buttons[i].onclick = function() {
+					fetch("/api/checkout", {
+						method: "POST"
+					}).then(response => {
+						if (response.ok) {
+							while (cartCard.firstChild) {
+								cartCard.removeChild(cartCard.firstChild);
+							}
+							notification.innerText = "0"
+							alert("Successfully checked out!\nYour order will be delivered in 3-5 business days.")
+						}
+					})
+				}
+			}
+	
+			for (let i = 0; i < quantities.length; i++) {
+				quantities[i].addEventListener('change', function() {
+					total = 0
+					for (let j = 0; j < quantities.length; j++) {
+						let quantity = quantities[j].value
+						total += items[parseInt(quantities[j].getAttribute("itemId")) - 1].price * quantity
+					}
+					cartTotal.innerText = "$" + (total).toFixed(2)
+				})
+			}
+			
+			for (let i = 0; i < items.length; i++) {
+				let item = items[i]
+				total += item.price * item.quantity
+				cartTotal.innerText = "$" + (total).toFixed(2)
+			}
+		}
+	</script>
 {% endblock %}
