@@ -12,16 +12,21 @@ except:
 
 @app.route('/')
 @app.get('/home')
-def index():
+def index() -> str:
+	''' Returns the html template for the home page '''
 	return render_template('index.html', quantity=("99+" if quantityTracker > 99 else quantityTracker))
 
 @app.get('/store/')
-def store():
+def store() -> str:
+	''' Returns the html template for the store page
+	and populates template with items from SQL datbase '''
 	items = Item.query.all()
 	return render_template('store.html', items=items, quantity=("99+" if quantityTracker > 99 else quantityTracker))
 
 @app.get('/cart')
-def cart():
+def cart() -> str:
+	''' Returns the html template for the cart page 
+	and sets up JSON file with item id, name, price, and quantity '''
 	items = Item.query.all()
 	itemJSON = []
 	itemSize = 0
@@ -37,7 +42,8 @@ def cart():
 	return render_template('cart.html', items=items, itemSize=itemSize, itemsJSON=json.dumps(itemJSON), quantity=("99+" if quantityTracker > 99 else quantityTracker))
 
 @app.post('/api/cart')
-def apiCart():
+def apiCart() -> int:
+	''' Writes quantity of items to JSON files '''
 	global quantityTracker
 	quantityTracker += 1
 	try:
@@ -51,7 +57,8 @@ def apiCart():
 		return Response(status=500)
 
 @app.post('/api/checkout')
-def apiCheckout():
+def apiCheckout() -> int:
+	''' Clears database '''
 	global quantityTracker
 	try:
 		items = Item.query.all()
