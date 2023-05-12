@@ -15,7 +15,7 @@ except:
 	soda = Item(name="Soda", price=2.00, image="https://cdn-icons-png.flaticon.com/256/7511/7511411.png")
 	water = Item(name="Water", price=1.00, image="https://images.vexels.com/media/users/3/259089/isolated/lists/fa80c898e7295243416b975650c23990-water-semi-flat-bottle.png")
 	shirt = Item(name="Shirt", price=10.00, image="https://images.vexels.com/media/users/3/205922/isolated/lists/1036cb6305295516576e02b064b7f1b3-belgian-t-shirt-hand-drawn.png")
-	pants = Item(name="Pants", price=15.00, image="https://letsspeakspanish.com/wp-content/uploads/h5p/content/123/images/file-63dd05d000650.png")
+	pants = Item(name="Pants", price=15.00, image="https://cdn-icons-png.flaticon.com/256/2117/2117481.png")
 	headphones = Item(name="Headphones", price=35.00, image="https://cdn-icons-png.flaticon.com/512/3193/3193548.png")
 	computer = Item(name="Computer", price=150.00, image="https://cdn-icons-png.flaticon.com/512/3439/3439971.png")
 	bongo = Item(name="Bongo", price=45, image="https://images.vexels.com/media/users/3/179131/isolated/lists/af51066440c5c0cdb5205977b59ba47d-bongo-drum-kettle-drum-flat.png")
